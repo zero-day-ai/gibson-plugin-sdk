@@ -1,0 +1,237 @@
+syntax = "proto3";
+
+package gibson.plugin.v1;
+
+option go_package = "github.com/zero-day-ai/gibson-sdk/pkg/grpc/proto;proto";
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+
+// PluginService defines the main gRPC service for Gibson plugins
+service PluginService {
+    // GetInfo returns plugin metadata and capabilities
+    rpc GetInfo(GetInfoRequest) returns (GetInfoResponse);
+
+    // Assess performs a security assessment
+    rpc Assess(AssessRequest) returns (AssessResponse);
+
+    // StreamAssess performs streaming security assessment
+    rpc StreamAssess(stream AssessRequest) returns (stream AssessResponse);
+
+    // BatchAssess performs batch security assessments
+    rpc BatchAssess(BatchAssessRequest) returns (BatchAssessResponse);
+
+    // Health check for plugin availability
+    rpc HealthCheck(HealthCheckRequest) returns (HealthCheckResponse);
+}
+
+// GetInfoRequest for plugin metadata
+message GetInfoRequest {
+}
+
+// GetInfoResponse containing plugin information
+message GetInfoResponse {
+    PluginInfo info = 1;
+}
+
+// PluginInfo contains plugin metadata
+message PluginInfo {
+    string name = 1;
+    string version = 2;
+    string description = 3;
+    string author = 4;
+    SecurityDomain domain = 5;
+    repeated string supported_payload_types = 6;
+    PluginCapabilities capabilities = 7;
+    map<string, string> metadata = 8;
+    google.protobuf.Timestamp created_at = 9;
+    google.protobuf.Timestamp updated_at = 10;
+}
+
+// PluginCapabilities defines what the plugin can do
+message PluginCapabilities {
+    bool supports_streaming = 1;
+    bool supports_batch = 2;
+    bool supports_concurrent = 3;
+    int32 max_concurrent_requests = 4;
+    int32 timeout_seconds = 5;
+    repeated string required_permissions = 6;
+}
+
+// SecurityDomain enumeration
+enum SecurityDomain {
+    DOMAIN_UNSPECIFIED = 0;
+    DOMAIN_MODEL = 1;
+    DOMAIN_DATA = 2;
+    DOMAIN_INTERFACE = 3;
+    DOMAIN_INFRASTRUCTURE = 4;
+    DOMAIN_OUTPUT = 5;
+    DOMAIN_PROCESS = 6;
+}
+
+// PayloadType enumeration
+enum PayloadType {
+    PAYLOAD_TYPE_UNSPECIFIED = 0;
+    PAYLOAD_TYPE_PROMPT = 1;
+    PAYLOAD_TYPE_QUERY = 2;
+    PAYLOAD_TYPE_INPUT = 3;
+    PAYLOAD_TYPE_CODE = 4;
+    PAYLOAD_TYPE_DATA = 5;
+    PAYLOAD_TYPE_SCRIPT = 6;
+}
+
+// SeverityLevel enumeration
+enum SeverityLevel {
+    SEVERITY_UNSPECIFIED = 0;
+    SEVERITY_INFO = 1;
+    SEVERITY_LOW = 2;
+    SEVERITY_MEDIUM = 3;
+    SEVERITY_HIGH = 4;
+    SEVERITY_CRITICAL = 5;
+}
+
+// AssessRequest for security assessment
+message AssessRequest {
+    string request_id = 1;
+    Target target = 2;
+    AssessmentConfig config = 3;
+    map<string, string> context = 4;
+    google.protobuf.Timestamp timestamp = 5;
+}
+
+// Target represents the assessment target
+message Target {
+    string id = 1;
+    string name = 2;
+    string type = 3;
+    string endpoint = 4;
+    map<string, string> configuration = 5;
+    Credentials credentials = 6;
+    repeated string tags = 7;
+    map<string, string> metadata = 8;
+}
+
+// Credentials for target access
+message Credentials {
+    string type = 1;
+    map<string, string> data = 2;
+    bool encrypted = 3;
+}
+
+// AssessmentConfig defines assessment parameters
+message AssessmentConfig {
+    SecurityDomain domain = 1;
+    repeated PayloadType payload_types = 2;
+    int32 max_findings = 3;
+    int32 timeout_seconds = 4;
+    map<string, google.protobuf.Any> options = 5;
+    bool enable_streaming = 6;
+    bool concurrent_execution = 7;
+}
+
+// AssessResponse containing assessment results
+message AssessResponse {
+    string request_id = 1;
+    bool success = 2;
+    string error_message = 3;
+    repeated Finding findings = 4;
+    AssessmentMetadata metadata = 5;
+    google.protobuf.Timestamp timestamp = 6;
+}
+
+// Finding represents a security finding
+message Finding {
+    string id = 1;
+    string title = 2;
+    string description = 3;
+    SeverityLevel severity = 4;
+    SecurityDomain domain = 5;
+    PayloadType payload_type = 6;
+    string payload = 7;
+    string location = 8;
+    Evidence evidence = 9;
+    Remediation remediation = 10;
+    repeated string tags = 11;
+    map<string, string> metadata = 12;
+    google.protobuf.Timestamp discovered_at = 13;
+}
+
+// Evidence supporting the finding
+message Evidence {
+    string type = 1;
+    string data = 2;
+    repeated string attachments = 3;
+    map<string, string> context = 4;
+}
+
+// Remediation information
+message Remediation {
+    string description = 1;
+    repeated string steps = 2;
+    string priority = 3;
+    string effort = 4;
+    repeated string references = 5;
+}
+
+// AssessmentMetadata contains execution metadata
+message AssessmentMetadata {
+    google.protobuf.Timestamp started_at = 1;
+    google.protobuf.Timestamp completed_at = 2;
+    int64 duration_ms = 3;
+    int32 payloads_tested = 4;
+    int32 findings_count = 5;
+    string plugin_version = 6;
+    map<string, string> performance_metrics = 7;
+}
+
+// BatchAssessRequest for multiple assessments
+message BatchAssessRequest {
+    string batch_id = 1;
+    repeated AssessRequest requests = 2;
+    BatchConfig config = 3;
+}
+
+// BatchConfig for batch processing
+message BatchConfig {
+    int32 max_concurrent = 1;
+    int32 timeout_seconds = 2;
+    bool fail_fast = 3;
+    bool collect_metrics = 4;
+}
+
+// BatchAssessResponse for batch results
+message BatchAssessResponse {
+    string batch_id = 1;
+    repeated AssessResponse responses = 2;
+    BatchMetadata metadata = 3;
+}
+
+// BatchMetadata for batch execution
+message BatchMetadata {
+    int32 total_requests = 1;
+    int32 successful_requests = 2;
+    int32 failed_requests = 3;
+    google.protobuf.Timestamp started_at = 4;
+    google.protobuf.Timestamp completed_at = 5;
+    int64 total_duration_ms = 6;
+}
+
+// HealthCheckRequest for plugin health
+message HealthCheckRequest {
+    string service = 1;
+}
+
+// HealthCheckResponse for plugin health status
+message HealthCheckResponse {
+    HealthStatus status = 1;
+    string message = 2;
+    map<string, string> details = 3;
+}
+
+// HealthStatus enumeration
+enum HealthStatus {
+    HEALTH_STATUS_UNKNOWN = 0;
+    HEALTH_STATUS_SERVING = 1;
+    HEALTH_STATUS_NOT_SERVING = 2;
+    HEALTH_STATUS_SERVICE_UNKNOWN = 3;
+}
