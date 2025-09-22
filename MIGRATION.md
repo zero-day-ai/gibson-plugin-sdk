@@ -20,7 +20,7 @@ Use the automated migration tool for most common scenarios:
 
 ```bash
 # Download the migration tool
-go install github.com/gibson-sec/gibson-plugin-sdk/cmd/migrate@latest
+go install github.com/zero-day-ai/gibson-sdk/cmd/migrate@latest
 
 # Preview changes (dry run)
 gibson-migrate --plugin-dir ./my-plugin --dry-run --verbose
@@ -57,7 +57,7 @@ module my-awesome-plugin
 go 1.21
 
 require (
-    github.com/gibson-sec/gibson-plugin-sdk v1.0.0
+    github.com/zero-day-ai/gibson-sdk v1.0.0
 )
 ```
 
@@ -81,8 +81,8 @@ import (
 
 // After
 import (
-    "github.com/gibson-sec/gibson-plugin-sdk/pkg/plugin"
-    "github.com/gibson-sec/gibson-plugin-sdk/pkg/core/models"
+    "github.com/zero-day-ai/gibson-sdk/pkg/plugin"
+    "github.com/zero-day-ai/gibson-sdk/pkg/core/models"
 )
 ```
 
@@ -90,10 +90,10 @@ import (
 
 | Old Import | New Import |
 |------------|------------|
-| `github.com/gibson-sec/gibson-framework/shared` | `github.com/gibson-sec/gibson-plugin-sdk/pkg/plugin` |
-| `github.com/gibson-sec/gibson-framework/shared/models` | `github.com/gibson-sec/gibson-plugin-sdk/pkg/core/models` |
-| `github.com/gibson-sec/gibson-framework/shared/types` | `github.com/gibson-sec/gibson-plugin-sdk/pkg/plugin` |
-| `github.com/gibson-sec/gibson-framework/shared/errors` | `github.com/gibson-sec/gibson-plugin-sdk/pkg/core/models` |
+| `github.com/gibson-sec/gibson-framework/shared` | `github.com/zero-day-ai/gibson-sdk/pkg/plugin` |
+| `github.com/gibson-sec/gibson-framework/shared/models` | `github.com/zero-day-ai/gibson-sdk/pkg/core/models` |
+| `github.com/gibson-sec/gibson-framework/shared/types` | `github.com/zero-day-ai/gibson-sdk/pkg/plugin` |
+| `github.com/gibson-sec/gibson-framework/shared/errors` | `github.com/zero-day-ai/gibson-sdk/pkg/core/models` |
 
 ### Step 3: Update Plugin Interface Implementation
 
@@ -279,7 +279,7 @@ func main() {
 
 // After
 import (
-    "github.com/gibson-sec/gibson-plugin-sdk/pkg/grpc"
+    "github.com/zero-day-ai/gibson-sdk/pkg/grpc"
     "github.com/hashicorp/go-plugin"
 )
 
@@ -362,7 +362,7 @@ import (
     "context"
     "testing"
 
-    "github.com/gibson-sec/gibson-plugin-sdk/pkg/testing"
+    "github.com/zero-day-ai/gibson-sdk/pkg/testing"
 )
 
 func TestMyPlugin(t *testing.T) {
@@ -543,7 +543,7 @@ func (p *MyPlugin) performAssessment(ctx context.Context, request models.AssessR
 
 ```go
 // Verify handshake configuration matches framework
-import "github.com/gibson-sec/gibson-plugin-sdk/pkg/grpc"
+import "github.com/zero-day-ai/gibson-sdk/pkg/grpc"
 
 func main() {
     plugin.Serve(&plugin.ServeConfig{
@@ -713,7 +713,7 @@ func (p *MyPlugin) ExecuteBatch(ctx context.Context, requests []models.AssessReq
 ### Community Support
 
 - [Gibson Discord](https://discord.gg/gibson-security)
-- [GitHub Issues](https://github.com/gibson-sec/gibson-plugin-sdk/issues)
+- [GitHub Issues](https://github.com/zero-day-ai/gibson-sdk/issues)
 - [Developer Forums](https://community.gibson-sec.com)
 
 ### Professional Support
@@ -730,7 +730,7 @@ For enterprise customers needing migration assistance:
 
 ```bash
 # Install migration tool
-go install github.com/gibson-sec/gibson-plugin-sdk/cmd/migrate@latest
+go install github.com/zero-day-ai/gibson-sdk/cmd/migrate@latest
 
 # Get help
 gibson-migrate --help
@@ -745,7 +745,7 @@ gibson-migrate --plugin-dir ./old-plugin --output-dir ./new-plugin
 
 ```bash
 # Check compatibility
-go run github.com/gibson-sec/gibson-plugin-sdk/cmd/version-check \
+go run github.com/zero-day-ai/gibson-sdk/cmd/version-check \
   --sdk-version v1.0.0 \
   --framework-version v2.0.0
 ```
@@ -754,7 +754,7 @@ go run github.com/gibson-sec/gibson-plugin-sdk/cmd/version-check \
 
 ```bash
 # Validate migrated plugin
-go run github.com/gibson-sec/gibson-plugin-sdk/cmd/validate \
+go run github.com/zero-day-ai/gibson-sdk/cmd/validate \
   --plugin-dir ./migrated-plugin
 ```
 
@@ -764,4 +764,4 @@ go run github.com/gibson-sec/gibson-plugin-sdk/cmd/validate \
 **SDK Version**: v1.0.0
 **Guide Version**: 1.0
 
-This migration guide is a living document. Please [contribute improvements](https://github.com/gibson-sec/gibson-plugin-sdk/blob/main/CONTRIBUTING.md) or [report issues](https://github.com/gibson-sec/gibson-plugin-sdk/issues) to help other developers.
+This migration guide is a living document. Please [contribute improvements](https://github.com/zero-day-ai/gibson-sdk/blob/main/CONTRIBUTING.md) or [report issues](https://github.com/zero-day-ai/gibson-sdk/issues) to help other developers.

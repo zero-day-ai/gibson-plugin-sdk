@@ -64,7 +64,7 @@ The Gibson Plugin SDK follows [Semantic Versioning (SemVer)](https://semver.org/
 Use the built-in compatibility checker to verify version compatibility:
 
 ```go
-import "github.com/gibson-sec/gibson-plugin-sdk/internal/version"
+import "github.com/zero-day-ai/gibson-sdk/internal/version"
 
 checker := version.NewCompatibilityChecker()
 result := checker.CheckCompatibility("1.0.0", "2.0.0")
@@ -180,7 +180,7 @@ gibson credentials rotate --all
    import "github.com/gibson-sec/gibson-framework/shared"
 
    // New SDK import
-   import "github.com/gibson-sec/gibson-plugin-sdk/pkg/plugin"
+   import "github.com/zero-day-ai/gibson-sdk/pkg/plugin"
    ```
 
 2. **Update Interface Implementation**
@@ -230,7 +230,7 @@ gibson credentials rotate --all
 
 Found a compatibility issue not covered here? Please report it:
 
-1. **Use the issue template**: [Report Compatibility Issue](https://github.com/gibson-sec/gibson-plugin-sdk/issues/new?template=compatibility-issue.md)
+1. **Use the issue template**: [Report Compatibility Issue](https://github.com/zero-day-ai/gibson-sdk/issues/new?template=compatibility-issue.md)
 2. **Include version information**:
    - SDK version
    - Framework version
@@ -281,8 +281,8 @@ jobs:
 
       - name: Check SDK Compatibility
         run: |
-          go run github.com/gibson-sec/gibson-plugin-sdk/cmd/version-check \
-            --sdk-version $(go list -m github.com/gibson-sec/gibson-plugin-sdk | cut -d' ' -f2) \
+          go run github.com/zero-day-ai/gibson-sdk/cmd/version-check \
+            --sdk-version $(go list -m github.com/zero-day-ai/gibson-sdk | cut -d' ' -f2) \
             --framework-version $(go list -m github.com/gibson-sec/gibson-framework | cut -d' ' -f2)
 ```
 
@@ -314,4 +314,4 @@ Before deploying with new versions:
 **Document Version**: 1.0
 **Applies to SDK**: v1.0.x
 
-For questions about this compatibility matrix, please [open an issue](https://github.com/gibson-sec/gibson-plugin-sdk/issues) or contact the Gibson Security team.
+For questions about this compatibility matrix, please [open an issue](https://github.com/zero-day-ai/gibson-sdk/issues) or contact the Gibson Security team.

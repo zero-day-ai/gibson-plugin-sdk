@@ -21,7 +21,7 @@ go mod init my-security-plugin
 Add the Gibson Plugin SDK dependency:
 
 ```bash
-go get github.com/gibson-sec/gibson-plugin-sdk@latest
+go get github.com/zero-day-ai/gibson-sdk@latest
 ```
 
 ## Your First Plugin
@@ -41,9 +41,9 @@ import (
     "net/http"
     "time"
 
-    "github.com/gibson-sec/gibson-plugin-sdk/pkg/plugin"
-    "github.com/gibson-sec/gibson-plugin-sdk/pkg/core/models"
-    "github.com/gibson-sec/gibson-plugin-sdk/pkg/grpc"
+    "github.com/zero-day-ai/gibson-sdk/pkg/plugin"
+    "github.com/zero-day-ai/gibson-sdk/pkg/core/models"
+    "github.com/zero-day-ai/gibson-sdk/pkg/grpc"
     "github.com/hashicorp/go-plugin"
     "github.com/google/uuid"
 )
@@ -200,9 +200,9 @@ import (
     "context"
     "testing"
 
-    "github.com/gibson-sec/gibson-plugin-sdk/pkg/testing"
-    "github.com/gibson-sec/gibson-plugin-sdk/pkg/core/models"
-    "github.com/gibson-sec/gibson-plugin-sdk/pkg/plugin"
+    "github.com/zero-day-ai/gibson-sdk/pkg/testing"
+    "github.com/zero-day-ai/gibson-sdk/pkg/core/models"
+    "github.com/zero-day-ai/gibson-sdk/pkg/plugin"
 )
 
 func TestSecurityHeaderPlugin(t *testing.T) {

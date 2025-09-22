@@ -2,9 +2,9 @@
 
 [![Go Version](https://img.shields.io/badge/go-1.21+-blue.svg)](https://golang.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/gibson-sec/gibson-plugin-sdk)
-[![Coverage](https://img.shields.io/badge/coverage-85%25-green.svg)](https://github.com/gibson-sec/gibson-plugin-sdk)
-[![Go Report Card](https://goreportcard.com/badge/github.com/gibson-sec/gibson-plugin-sdk)](https://goreportcard.com/report/github.com/gibson-sec/gibson-plugin-sdk)
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/zero-day-ai/gibson-sdk)
+[![Coverage](https://img.shields.io/badge/coverage-85%25-green.svg)](https://github.com/zero-day-ai/gibson-sdk)
+[![Go Report Card](https://goreportcard.com/badge/github.com/zero-day-ai/gibson-sdk)](https://goreportcard.com/report/github.com/zero-day-ai/gibson-sdk)
 
 The Gibson Plugin SDK is a comprehensive Go framework for building security assessment plugins for the Gibson Framework. It provides a robust, type-safe, and extensible foundation for developing plugins that can assess AI/ML systems, web applications, APIs, and other digital assets.
 
@@ -23,7 +23,7 @@ The Gibson Plugin SDK is a comprehensive Go framework for building security asse
 ### Installation
 
 ```bash
-go get github.com/gibson-sec/gibson-plugin-sdk@latest
+go get github.com/zero-day-ai/gibson-sdk@latest
 ```
 
 ### Create Your First Plugin
@@ -35,9 +35,9 @@ import (
     "context"
     "time"
 
-    "github.com/gibson-sec/gibson-plugin-sdk/pkg/plugin"
-    "github.com/gibson-sec/gibson-plugin-sdk/pkg/core/models"
-    "github.com/gibson-sec/gibson-plugin-sdk/pkg/grpc"
+    "github.com/zero-day-ai/gibson-sdk/pkg/plugin"
+    "github.com/zero-day-ai/gibson-sdk/pkg/core/models"
+    "github.com/zero-day-ai/gibson-sdk/pkg/grpc"
     "github.com/hashicorp/go-plugin"
     "github.com/google/uuid"
 )

@@ -111,7 +111,7 @@ type TLSConfig struct {
 ### Configuration Validation
 
 ```go
-import "github.com/gibson-sec/gibson-plugin-sdk/pkg/validation"
+import "github.com/zero-day-ai/gibson-sdk/pkg/validation"
 
 func (p *MyPlugin) Initialize(ctx context.Context, config map[string]interface{}) models.Result[bool] {
     var pluginConfig PluginConfig
@@ -273,7 +273,7 @@ func (p *CachedPlugin) Execute(ctx context.Context, request models.AssessRequest
 ### Input Sanitization
 
 ```go
-import "github.com/gibson-sec/gibson-plugin-sdk/pkg/validation"
+import "github.com/zero-day-ai/gibson-sdk/pkg/validation"
 
 func (p *MyPlugin) Validate(ctx context.Context, request models.AssessRequest) models.Result[bool] {
     // URL validation

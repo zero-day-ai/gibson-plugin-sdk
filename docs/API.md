@@ -43,8 +43,8 @@ package main
 
 import (
     "context"
-    "github.com/gibson-sec/gibson-plugin-sdk/pkg/plugin"
-    "github.com/gibson-sec/gibson-plugin-sdk/pkg/core/models"
+    "github.com/zero-day-ai/gibson-sdk/pkg/plugin"
+    "github.com/zero-day-ai/gibson-sdk/pkg/core/models"
 )
 
 type MyPlugin struct {
@@ -519,8 +519,8 @@ import (
     "context"
     "time"
 
-    "github.com/gibson-sec/gibson-plugin-sdk/pkg/plugin"
-    "github.com/gibson-sec/gibson-plugin-sdk/pkg/core/models"
+    "github.com/zero-day-ai/gibson-sdk/pkg/plugin"
+    "github.com/zero-day-ai/gibson-sdk/pkg/core/models"
 )
 
 type BasicSecurityPlugin struct {
