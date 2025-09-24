@@ -40,7 +40,7 @@ func main() {}`,
 			name: "already migrated - SDK import",
 			code: `package main
 
-import "github.com/zero-day-ai/gibson-sdk/pkg/plugin"
+import "github.com/zero-day-ai/gibson-plugin-sdk/pkg/plugin"
 
 func main() {}`,
 			expected: false,
@@ -82,14 +82,14 @@ func TestMigrator_updateImports(t *testing.T) {
 			code: `package main
 
 import "github.com/gibson-sec/gibson-framework/shared"`,
-			expected: `"github.com/zero-day-ai/gibson-sdk/pkg/plugin"`,
+			expected: `"github.com/zero-day-ai/gibson-plugin-sdk/pkg/plugin"`,
 		},
 		{
 			name: "update shared models import",
 			code: `package main
 
 import "github.com/gibson-sec/gibson-framework/shared/models"`,
-			expected: `"github.com/zero-day-ai/gibson-sdk/pkg/core/models"`,
+			expected: `"github.com/zero-day-ai/gibson-plugin-sdk/pkg/core/models"`,
 		},
 		{
 			name: "no change for other imports",
@@ -126,17 +126,17 @@ func TestMigrator_mapSharedImport(t *testing.T) {
 		{
 			name:     "basic shared import",
 			input:    "github.com/gibson-sec/gibson-framework/shared",
-			expected: "github.com/zero-day-ai/gibson-sdk/pkg/plugin",
+			expected: "github.com/zero-day-ai/gibson-plugin-sdk/pkg/plugin",
 		},
 		{
 			name:     "shared models import",
 			input:    "github.com/gibson-sec/gibson-framework/shared/models",
-			expected: "github.com/zero-day-ai/gibson-sdk/pkg/core/models",
+			expected: "github.com/zero-day-ai/gibson-plugin-sdk/pkg/core/models",
 		},
 		{
 			name:     "shared types import",
 			input:    "github.com/gibson-sec/gibson-framework/shared/types",
-			expected: "github.com/zero-day-ai/gibson-sdk/pkg/plugin",
+			expected: "github.com/zero-day-ai/gibson-plugin-sdk/pkg/plugin",
 		},
 		{
 			name:     "non-shared import unchanged",

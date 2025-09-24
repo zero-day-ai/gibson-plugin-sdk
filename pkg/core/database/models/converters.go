@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"time"
 
-	coremodels "github.com/zero-day-ai/gibson-sdk/pkg/core/models"
+	coremodels "github.com/zero-day-ai/gibson-plugin-sdk/pkg/core/models"
 	"github.com/google/uuid"
 )
 

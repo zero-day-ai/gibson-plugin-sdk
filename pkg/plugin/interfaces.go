@@ -5,7 +5,7 @@ import (
 	"context"
 	"time"
 
-	"github.com/zero-day-ai/gibson-sdk/pkg/core/models"
+	"github.com/zero-day-ai/gibson-plugin-sdk/pkg/core/models"
 )
 
 // SecurityPlugin is the core interface that all Gibson security plugins must implement.

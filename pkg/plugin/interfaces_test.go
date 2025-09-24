@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/zero-day-ai/gibson-sdk/pkg/core/models"
+	"github.com/zero-day-ai/gibson-plugin-sdk/pkg/core/models"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

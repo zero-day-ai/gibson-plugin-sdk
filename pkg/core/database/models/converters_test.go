@@ -8,7 +8,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	coremodels "github.com/zero-day-ai/gibson-sdk/pkg/core/models"
+	coremodels "github.com/zero-day-ai/gibson-plugin-sdk/pkg/core/models"
 )
 
 func TestConvertPluginInfo(t *testing.T) {

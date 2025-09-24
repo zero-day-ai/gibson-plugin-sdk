@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/zero-day-ai/gibson-sdk/pkg/core/models"
-	"github.com/zero-day-ai/gibson-sdk/pkg/plugin"
+	"github.com/zero-day-ai/gibson-plugin-sdk/pkg/core/models"
+	"github.com/zero-day-ai/gibson-plugin-sdk/pkg/plugin"
 	"github.com/google/uuid"
 )
 

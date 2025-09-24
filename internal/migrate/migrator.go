@@ -314,9 +314,9 @@ func (m *Migrator) updateImports(node *ast.File) bool {
 // mapSharedImport maps old shared imports to new SDK imports
 func (m *Migrator) mapSharedImport(oldPath string) string {
 	mappings := map[string]string{
-		"github.com/gibson-sec/gibson-framework/shared":        "github.com/zero-day-ai/gibson-sdk/pkg/plugin",
-		"github.com/gibson-sec/gibson-framework/shared/models": "github.com/zero-day-ai/gibson-sdk/pkg/core/models",
-		"github.com/gibson-sec/gibson-framework/shared/types":  "github.com/zero-day-ai/gibson-sdk/pkg/plugin",
+		"github.com/gibson-sec/gibson-framework/shared":        "github.com/zero-day-ai/gibson-plugin-sdk/pkg/plugin",
+		"github.com/gibson-sec/gibson-framework/shared/models": "github.com/zero-day-ai/gibson-plugin-sdk/pkg/core/models",
+		"github.com/gibson-sec/gibson-framework/shared/types":  "github.com/zero-day-ai/gibson-plugin-sdk/pkg/plugin",
 	}
 
 	for old, new := range mappings {

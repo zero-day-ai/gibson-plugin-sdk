@@ -1,4 +1,4 @@
-module github.com/zero-day-ai/gibson-sdk
+module github.com/zero-day-ai/gibson-plugin-sdk
 
 go 1.24
 

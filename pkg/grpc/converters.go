@@ -5,8 +5,8 @@ import (
 
 	"google.golang.org/protobuf/types/known/timestamppb"
 
-	"github.com/zero-day-ai/gibson-sdk/pkg/grpc/proto"
-	"github.com/zero-day-ai/gibson-sdk/pkg/plugin"
+	"github.com/zero-day-ai/gibson-plugin-sdk/pkg/grpc/proto"
+	"github.com/zero-day-ai/gibson-plugin-sdk/pkg/plugin"
 )
 
 // convertSecurityDomain converts SDK SecurityDomain to proto SecurityDomain

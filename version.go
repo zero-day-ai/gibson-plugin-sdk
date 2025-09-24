@@ -167,7 +167,7 @@ See MIGRATION.md for detailed migration instructions from Gibson Framework share
 - **Throughput**: > 20 requests/second per plugin
 
 ## Getting Started
-1. Install the SDK: go get github.com/zero-day-ai/gibson-sdk
+1. Install the SDK: go get github.com/zero-day-ai/gibson-plugin-sdk
 2. Review the examples in the examples/ directory
 3. Read the API documentation in docs/API.md
 4. Follow the plugin development guide in docs/guides/

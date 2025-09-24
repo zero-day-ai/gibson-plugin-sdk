@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/zero-day-ai/gibson-sdk/pkg/core/models"
+	"github.com/zero-day-ai/gibson-plugin-sdk/pkg/core/models"
 )
 
 // Version represents a semantic version

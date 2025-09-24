@@ -7,7 +7,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/zero-day-ai/gibson-sdk/internal/migrate"
+	"github.com/zero-day-ai/gibson-plugin-sdk/internal/migrate"
 )
 
 const (

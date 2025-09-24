@@ -7,7 +7,7 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/zero-day-ai/gibson-sdk/pkg/plugin"
+	"github.com/zero-day-ai/gibson-plugin-sdk/pkg/plugin"
 )
 
 // ValidationError represents a validation error with context

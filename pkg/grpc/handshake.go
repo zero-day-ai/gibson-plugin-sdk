@@ -9,9 +9,9 @@ import (
 	"github.com/hashicorp/go-plugin"
 	"google.golang.org/grpc"
 
-	"github.com/zero-day-ai/gibson-sdk/pkg/core/models"
-	"github.com/zero-day-ai/gibson-sdk/pkg/grpc/proto"
-	pluginpkg "github.com/zero-day-ai/gibson-sdk/pkg/plugin"
+	"github.com/zero-day-ai/gibson-plugin-sdk/pkg/core/models"
+	"github.com/zero-day-ai/gibson-plugin-sdk/pkg/grpc/proto"
+	pluginpkg "github.com/zero-day-ai/gibson-plugin-sdk/pkg/plugin"
 )
 
 // ProtocolVersion defines the protocol version for Gibson plugins

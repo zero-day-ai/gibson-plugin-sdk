@@ -21,11 +21,11 @@ type ImportTransformer struct {
 func NewImportTransformer() *ImportTransformer {
 	return &ImportTransformer{
 		mappings: map[string]string{
-			"github.com/gibson-sec/gibson-framework/shared":        "github.com/zero-day-ai/gibson-sdk/pkg/plugin",
-			"github.com/gibson-sec/gibson-framework/shared/models": "github.com/zero-day-ai/gibson-sdk/pkg/core/models",
-			"github.com/gibson-sec/gibson-framework/shared/types":  "github.com/zero-day-ai/gibson-sdk/pkg/plugin",
-			"github.com/gibson-sec/gibson-framework/shared/errors": "github.com/zero-day-ai/gibson-sdk/pkg/core/models",
-			"github.com/gibson-sec/gibson-framework/shared/utils":  "github.com/zero-day-ai/gibson-sdk/pkg/validation",
+			"github.com/gibson-sec/gibson-framework/shared":        "github.com/zero-day-ai/gibson-plugin-sdk/pkg/plugin",
+			"github.com/gibson-sec/gibson-framework/shared/models": "github.com/zero-day-ai/gibson-plugin-sdk/pkg/core/models",
+			"github.com/gibson-sec/gibson-framework/shared/types":  "github.com/zero-day-ai/gibson-plugin-sdk/pkg/plugin",
+			"github.com/gibson-sec/gibson-framework/shared/errors": "github.com/zero-day-ai/gibson-plugin-sdk/pkg/core/models",
+			"github.com/gibson-sec/gibson-framework/shared/utils":  "github.com/zero-day-ai/gibson-plugin-sdk/pkg/validation",
 		},
 	}
 }

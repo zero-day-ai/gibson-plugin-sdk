@@ -1916,7 +1916,7 @@ const file_pkg_grpc_proto_plugin_proto_rawDesc = "" +
 	"\x06Assess\x12\x1f.gibson.plugin.v1.AssessRequest\x1a .gibson.plugin.v1.AssessResponse\x12U\n" +
 	"\fStreamAssess\x12\x1f.gibson.plugin.v1.AssessRequest\x1a .gibson.plugin.v1.AssessResponse(\x010\x01\x12Z\n" +
 	"\vBatchAssess\x12$.gibson.plugin.v1.BatchAssessRequest\x1a%.gibson.plugin.v1.BatchAssessResponse\x12Z\n" +
-	"\vHealthCheck\x12$.gibson.plugin.v1.HealthCheckRequest\x1a%.gibson.plugin.v1.HealthCheckResponseB>Z<github.com/zero-day-ai/gibson-sdk/pkg/grpc/proto;protob\x06proto3"
+	"\vHealthCheck\x12$.gibson.plugin.v1.HealthCheckRequest\x1a%.gibson.plugin.v1.HealthCheckResponseB>Z<github.com/zero-day-ai/gibson-plugin-sdk/pkg/grpc/proto;protob\x06proto3"
 
 var (
 	file_pkg_grpc_proto_plugin_proto_rawDescOnce sync.Once

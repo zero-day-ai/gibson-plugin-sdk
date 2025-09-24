@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/zero-day-ai/gibson-sdk/pkg/plugin"
+	"github.com/zero-day-ai/gibson-plugin-sdk/pkg/plugin"
 )
 
 // TestResult represents the result of a single test
